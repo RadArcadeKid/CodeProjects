@@ -1,0 +1,25 @@
+/|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\
+/|   .   .        |||||||||||||||||||||||||   .            |\
+/|              . ||OMEGASEVEN|||||||||||||          o    .|\
+/|.               ||||||||||||||||||||||||| .              |\
+/|           .    ||||  \    ||||||||||||||   .         .  |\
+/|         O      ||||TRANSPORT SHIP|||||||       .        |\
+/| .              ||||||||||||||||||||||||| .              |\
+/|   .          . |||||||||||||||||||||||||           .    |\
+/| .       .      |||||||||||||||||||||||||   .            |\
+/|||||||||||||||||||||Destination:||||||||||||||||||||||||||\
+/|  [~~~]         |||||__________||||||||||                |\
+/|                |||||||||||||||||||||||||                |\
+/|                |||||||||||||||||||||||||                |\
+/|                |||||||||||||||||||||||||                |\
+
+You abruptly awaken to find yourself on the cold floor of a spaceship.
+The place looks old - faded, slightly rusting floors and dim lighting. 
+You're wearing an orange jumpsuit with your name accross the front.
+Your head hurts, and you can't quite remember how you got here.
+In front of you are two massive windows, and a plaque reading:
+			OmegaSeven - Transport Ship
+There appears to be something written above this, but it's scratched out. 
+
+A destination screen, and a small note sit in front of you. 
+  	

@@ -1,0 +1,27 @@
+______________________________________________________________
+|\                                                           /
+| \                     _________________                   /
+|  \                      A R C H I V E                    /
+|  |------------------------------------------------------|
+|  |[o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o|
+|  |[o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o|
+|  |[o=o]     [o=o][o=o][o=o]     [o=o][o=o][o=o][o=o][o=o|
+|  |[o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o|
+|  |[o=o][o=o][o=o][o=o][o=o][o=o][o=o]     [o=o][o=o][o=o|
+|  | | | | | | | | | | | | | | | | | | | | | | | | | | | ||
+|  |------------------------------------------------------|   
+|  |[o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o|
+|  |[o=o]     [o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o][o=o|
+|  |----------------------------------|  [ INSERT] |------|
+|  |----------------------------------|  [  TAPE ] |------|
+|  |----------------------------------|  [       ] |------|
+|  |----------------------------------|. . . . . > |------|
+|  |----------------------------------|__________<_|------|
+
+The door was locked, but given its age, you have no problem breaking it open.
+You find yourself in the information archive. A harsh fluorescent light
+illuminates a massive wall of data cassette tapes are in front of you.
+There is a large cassette-player mounted to the wall
+This place must contain hundreds of secrets. 
+
+Most of the tapes are labelled, but several catch your eye:

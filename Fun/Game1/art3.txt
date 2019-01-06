@@ -1,0 +1,21 @@
+\                  \_________/                 /
+ |  [INFORMATION]  |||||||||||   [TERMINAL]    |
+ |  [ ARCHIVE   ]  |||||||||||   [ ROOM   ]    |
+ |                 |||||||||||                 |
+ |                 |||||||||||                 | 
+ |            |    |||||||||||    |            | 
+ |____________|    |||||||||||    |____________|
+ |            \    |||||||||||    /            | 
+ |             \   |||||||||||   /             |
+ |              \  |||||||||||  /              | 
+ |               \ ||||||||||| /               | 
+ |                \|||||||||||/                |
+
+
+You are standing in ship's hallway outside the breakroom. 
+The place feels eerily familiar, you feel like you've been here before. 
+It's eerily quiet. Two illuminated signs are the only lights you can see:
+To the left, "INFORMATION ARCHIVE"
+To the right, "TERMINAL ROOM"
+
+ 
