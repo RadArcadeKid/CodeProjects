@@ -42,7 +42,7 @@ int room1(string uName) //starting room, ship's hull
   }
   else 
   {
-  	cout << "ERROR - " <<endl; 
+  	cout << "FILE OPENING ERROR - " <<endl; 
   	return 0;
   }
 
@@ -121,7 +121,7 @@ int room2(string uName) //breakroom w/ AI, Dave
   }
   else 
   {
-    cout << "ERROR - " <<endl; 
+    cout << "FILE OPENING ERROR - " <<endl; 
     return 0;
   }
 
@@ -140,7 +140,7 @@ int room2(string uName) //breakroom w/ AI, Dave
 
     if(playerChoice2 == "1")
     {
-      cout<<uName + " I AM THE ONBOARD AI, D.A.V.E. BUT YOU SHOULD KNOW THIS ALREADY"<<endl;
+      cout<<uName + " I AM THE ONBOARD AI, BUT YOU SHOULD KNOW THIS ALREADY"<<endl;
       cout<<"I AM HERE TO KEEP WATCH OVER YOU. MAKE SURE YOU DON'T DO ANYTHING STUPID."<<endl;
       playerChoice2 == "";
       cout<<endl;
@@ -260,7 +260,7 @@ int room3() //hallway full of choices
   }
   else 
   {
-    cout << "ERROR - " <<endl; 
+    cout << "FILE OPENING ERROR - " <<endl; 
     return 0;
   }
 
@@ -322,7 +322,7 @@ bool archive(string uName, bool aIStat)
   }
   else 
   {
-    cout << "ERROR - " <<endl; 
+    cout << "FILE OPENING ERROR - " <<endl; 
     return 0;
   }
 
@@ -366,6 +366,7 @@ bool archive(string uName, bool aIStat)
     }
     else if(tapeChoice == "2")
     {
+      cout<<"The tape plays..."<<endl; 
       cout<<"You hear a man's voice, he sounds a bit frustrated:"<<endl; 
       cout<<"--I can't believe we really have to make these tapes. It's not like anyone other than"<<endl;
       cout<<"the administrative staff here needs them anyway..."<<endl;
@@ -379,12 +380,15 @@ bool archive(string uName, bool aIStat)
     }
     else if(tapeChoice == "3")
     {
+      cout<<"The tape starts..."<<endl; 
       cout<<"You hear footsteps running on a metal floor, and heavy breathing"<<endl;
       cout<<"A woman's voice cuts into the audio, she sounds upset: "<<endl;
       cout<< "--" + uName + ", if you're hearing this, it means I've utterly failed. I'm so sorry."<<endl;
       cout<<"It means that the AI has completely screwed us, and you're on your own. I tried "<<endl;
       cout<<"all I could to stop the Warden, Dave, but it didn't work. The only thing I was able"<<endl;
-      cout<<"to find was written on a scrap of paper in his desk, which said 'th5b3st0fu5' " <<endl;
+      cout<<"to find was written on a scrap of paper in his desk, which said: "<<endl; 
+      cout<<"  th5b3st0fu5  "<<endl; 
+      cout<<"all lower case, with numbers as vowels...."<<endl;
       cout<<"I hope it helps you with something. I couldn't figure out what it meant.--"<<endl; 
       cout<<endl; 
       cout<<"..."<<endl; 
@@ -412,6 +416,76 @@ bool archive(string uName, bool aIStat)
   return true;
 }
 
+bool terminalroom(string uName, bool aIStat, bool visitedarchiveroom, bool previouslyEnteredPassword)
+{
+
+  string tapeChoice = ""; 
+  string line;
+  bool aiShutDown = false; 
+  int tapeCounter = 0;
+  string password = "";
+  bool correctPassword = false; 
+  ifstream myfile ("./art5.txt");
+
+  if (myfile.is_open())
+  {
+    while ( getline (myfile,line) )
+    {
+      cout << line << '\n';
+    }
+    myfile.close();
+  }
+  else 
+  {
+    cout << "FILE OPENING ERROR - " <<endl; 
+    return 0;
+  }
+
+  if(previouslyEnteredPassword == false) //used in case this is the second time coming back to the archive room 
+  {
+    while(correctPassword == false) //if the player hasn't entered the correct password, they'll stay in this loop for multiple guesses 
+    {
+      cout<<"The computer is locked. It prompts you for a password:"<<endl;
+      cout<<"(Type a password)  PASSWORD: ";
+      cin>>password;
+
+      if(password == "th5b3st0fu5") //the correct password, obtained by listening to the tape in the archive room 
+      {
+        correctPassword = true; 
+        cout<<"PASSWORD IS CORRECT"<<endl; 
+        //end the loop here, move on to the rest of the game
+      }
+      else
+      {
+        //Either the player hasn't been to the archive room and doesn't know the password, or they have visited and they forgot/didn't enter it in correctly 
+        if(visitedarchiveroom == false) //if the player hasn't been to the archive room, then they don't know the password
+        {
+          cout<<"...You realize guessing isn't going to work..."<<endl; 
+          cout<<"....Perhaps the archive room might have some secrets or something..."<<endl;
+          cout<<endl; 
+          cout<<"You decide to leave the terminal room to see what else you can find"<<endl; 
+          return false; //and the function will return false and end, so they can figure out the password when they come pack 
+        }
+        if(visitedarchiveroom == true) //because the player already went to the arhcive room, remind the player they found the password earlier 
+        {
+          cout<<"...You remember something you heard in the archive room..."<<endl; 
+          cout<<"Wasn't there some slip of paper in the Warden's desk? Maybe that will help out?"<<endl; 
+          password = "";
+          correctPassword = false;
+        }   
+      }  
+    }
+
+  }
+  else if(previouslyEnteredPassword == true)
+  {
+    //insert code for endgame here! 
+  }
+
+  return true;
+}
+
+
 int errormessage() //function to display an error status if a file cannot be found 
 {
   cout<<endl;
@@ -428,7 +502,8 @@ int main()
   bool hallwayFinished = false;
   bool pissedAI = false;
 	int firstChoice = room1(playerName);
-
+  bool completeRoom = false; 
+  
 	if(firstChoice == 0)
 	{
 		errormessage();
@@ -471,6 +546,7 @@ bool visitedArchive = false;
     if(hallwayChoice == 2)
     {
       //go to terminal room 
+      terminalRoom(playerName, pissedAI, visitedArchive, completeRoom);
       //if you've already been to the archive room, then you have password for computer room
       //if not, tell the player to go check the archive room and return 
       cout<<"--insert code for computer room"<<endl;
