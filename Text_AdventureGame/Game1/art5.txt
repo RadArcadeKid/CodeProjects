@@ -19,7 +19,8 @@ ______________________________________________________________
 |  |          /// / / / / / / /[ ]\ \ \ \ \ \ \ \\\=======|
 |  |         /// / / / / / / / [ ] \ \ \ \ \ \ \ \\\      |
 
-You walk into the terminal room, and are greetive by a large computer
-sitting in front of you. Tons of wires lead out of the computer into 
-the walls. You can tell this place must control the whole ship.
-There is a keyboard in front of you. You walk up to the computer:
+You shove open the heavy door to the terminal room and see a large computer in the center
+of the room. Tons of old wires lead out of the computer into the walls. LED lights spread 
+accross the walls blink at random intervals. 
+...Perhaps place is the main control center for the ship?
+There is a keyboard connected to the computer, the screen is flashing

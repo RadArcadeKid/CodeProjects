@@ -60,11 +60,11 @@ int room1(string uName) //starting room, ship's hull
     	cout<<endl;
     	cout<<"You examine desination screen and read:" << endl;
     	cout<<"Destination [LOCKED: Black Hole 17A]"<<endl;
-    	cout<<"...why the hell would we be going there?"<<endl; 
+    	cout<<"...oh god..."<<endl; 
+      cout<<"...that'll destroy the entire ship!"<<endl;
       cout<<"...is there a way to change direction?"<<endl; 
     	cout<<endl;
     	cout<<endl;
-    	cout<<"Now "; 
 
     	playerChoice == "";
     	done--;
@@ -75,11 +75,8 @@ int room1(string uName) //starting room, ship's hull
     	cout<<"You look at the small note stuck to the wall in front of you"<<endl;
     	cout<<"It has a message displayed on it:"<<endl;
     	cout<<endl; 
-    	cout<<" -- ATTENTION " + uName + ", come find me in the breakroom."<<endl;
-    	cout<<"We have something extremely important to discuss -- "<<endl; 
+    	cout<<" We're headed for death...the black hole is almost upon us... "<<endl; 
     	cout<<endl;
-    	cout<<endl;
-    	cout<<"Now "; 
 
     	playerChoice == "";
     	done--;
@@ -100,6 +97,70 @@ int room1(string uName) //starting room, ship's hull
   return 1;
 }
 
+int room1_5(string uName)
+{
+  int done = 2;
+  string line;
+  string playerChoice = ""; 
+  ifstream myfile ("./art1_5.txt");
+  if (myfile.is_open())
+  {
+    while ( getline (myfile,line) )
+    {
+      cout << line << '\n';
+    }
+    myfile.close();
+  }
+  else 
+  {
+    cout << "FILE OPENING ERROR - " <<endl; 
+    return 0;
+  }
+
+
+  while(done > 0)
+  {
+    //something
+    cout<<"Do you: "<<endl;
+    cout<<"1. Read the writing on the floor " <<endl;
+    cout<<"2. Pick up the tape " << endl;
+    cout<<" (Enter either 1 or 2): ";
+    cin >> playerChoice;
+
+    if(playerChoice == "1")
+    {
+      cout<<endl;
+      cout<<"The scratchy writing reads: "<<endl;
+      cout<<" -- Stay out of the breakroom, " + uName + " -- " <<endl; 
+      cout<<endl; 
+
+      playerChoice == "";
+      done--;
+    }
+    else if(playerChoice == "2")
+    {
+      cout<<endl; 
+      cout<<"You pick up the tape, and on it is written: "<endl;
+      cout<< " - " + uName + ", please play this - " <<endl;
+      cout<<endl; 
+      cout<<"You realize you have no way to "<<endl; 
+      cout<<"to listen to it, so you slip it in your pocket."<<endl;
+      cout<<"...perhaps it will be useful later"<<endl; 
+      cout<<endl; 
+      playerChoice == "";
+      done--;
+    }
+    else if(playerChoice != "1" || "2")
+    {
+      cout<<endl; 
+      cout<<"That is not a valid option...Let's try again"<<endl;
+      cout<<endl;
+      cout<<endl; 
+      playerChoice == "";
+    }
+  }
+  return 1;
+}
 
 int room2(string uName) //breakroom w/ AI, Dave 
 {
@@ -131,7 +192,7 @@ int room2(string uName) //breakroom w/ AI, Dave
   while(done > 0)
   {
     cout<<"1. Who are you?" <<endl;
-    cout<<"2. What did you want to speak to me about?" << endl;
+    cout<<"2. What is this place?" << endl; //fix this later 
     cout<<"3. Why are we headed for a black hole?"<<endl; 
     cout<<" (Enter either 1, 2, or 3): ";
     cin >> playerChoice2;
@@ -140,7 +201,7 @@ int room2(string uName) //breakroom w/ AI, Dave
 
     if(playerChoice2 == "1")
     {
-      cout<<uName + " I AM THE ONBOARD AI, BUT YOU SHOULD KNOW THIS ALREADY"<<endl;
+      cout<<uName + " I AM THE ONBOARD ANDROID, BUT YOU SHOULD KNOW THIS ALREADY"<<endl;
       cout<<"I AM HERE TO KEEP WATCH OVER YOU. MAKE SURE YOU DON'T DO ANYTHING STUPID."<<endl;
       playerChoice2 == "";
       cout<<endl;
@@ -149,18 +210,8 @@ int room2(string uName) //breakroom w/ AI, Dave
     }
     else if(playerChoice2 == "2")
     {
-      cout<<"I AM REQUIRED TO INFORM YOU OF THE FOLLOWING INFORMATION: "<<endl;
-      cout<<"YOU SHOULD KNOW YOU DO NOT HAVE MUCH TIME LEFT: "<<endl;
-      cout<<"TO BE EXACT - 13 MINUTES, 12 SECONDS, 43 MILLISECONDS BEFORE WE REACH THE SINGULARITY"<<endl;
-      cout<<"AND YOU ARE SLOWLY AND PAINFULLY KILLED."<<endl;
-      cout<<"..."<<endl;
-      cout<<"...What the hell?!"<<endl; 
-      playerChoice2 == "";
-      cout<<"...why would you tell me that?"<<endl;
-      cout<<"..."<<endl;
-      cout<<"IT IS MY PROTOCOL TO INFORM YOU OF YOUR EXACT TIME BEFORE DEATH."<<endl; 
-      cout<<"I WAS PROGRAMMED TO MAKE YOU AWARE OF THIS AS OFTEN AS POSSIBLE"<<endl;
-      cout<<"TO PROVIDE PSYCHOLOGICAL DISCOMFORT AND DREAD."<<endl;
+      cout<<"THIS IS THE OMEGASEVEN PRISONER TRANSPORT SHIP"<<endl;
+      cout<<"WE HAVE BEEN IN-TRANSIT TO OUR DESINTATION FOR 3 MONTHS"<<endl; 
       cout<<endl;
       cout<<endl;
       done--;
@@ -171,7 +222,7 @@ int room2(string uName) //breakroom w/ AI, Dave
       {  
         cout<<uName + ", THAT IS NOT SOMETHING I AM ALLOWED TO ANSWER TO SOMEONE OF YOUR RANK"<<endl;
         cout<<endl;
-        cout<<"Not allowed to answer?! Just tell me! "<<endl;
+        cout<<"...Not allowed to answer?! Just tell me!  We're going to die!! "<<endl;
         cout<<endl;
         cout<<"**He says nothing**"<<endl;
         cout<<endl;
@@ -191,6 +242,7 @@ int room2(string uName) //breakroom w/ AI, Dave
           cout<<"YOUR INSULT HAS BEEN NOTED AND PERMANENTLY STORED INTO MEMORY"<<endl;
           cout<<"I CANNOT HELP YOU"<<endl;
           cout<<"AS YOU ARE A PRISONER HERE, " + uName<<endl;
+          cout<<"DO NOT ADDRESS YOUR WARDEN WITH SUCH DISREPSECT"<<endl;
           cout<<endl;
           aiStatus = 2;  
         }
@@ -198,7 +250,7 @@ int room2(string uName) //breakroom w/ AI, Dave
         {
           validDeepChoice = true;
           cout<<"NICE TRY. BUT YOU ARE A PRISONER HERE. YOU CANNOT OBTAIN INFORMATION FROM ME IN ANY WAY."<<endl; 
-          cout<<"I CANNOT DIE. I DO NOT LIVE. BUT YOU CAN. AND YOU WILL SOON."<<endl;
+          cout<<"I CANNOT DIE. BUT YOU CAN. AND YOU WILL SOON."<<endl;
           cout<<endl;
         }
         else if(deepChoice1 == "C" || deepChoice1 == "c") //question C 
@@ -206,7 +258,8 @@ int room2(string uName) //breakroom w/ AI, Dave
           validDeepChoice = true;
           cout<<"He grabs your arm with great force, stopping you completely. He shouts:"<<endl;
           cout<<"BEHAVE YOURSELF"<<endl;
-          cout<<"YOU ARE A PRISONER HERE - YOUR OUTBRUST WILL NOW BE STORED INTO MEMORY PERMANENTLY"<<endl;
+          cout<<"YOU ARE A PRISONER HERE - AND I AM YOUR WARDEN"<<endl;
+          cout<<"YOUR OUTBRUST AGAINST ME WILL NOW BE STORED INTO MEMORY PERMANENTLY"<<endl;
           cout<<endl; 
           aiStatus = 2; 
         }
@@ -236,6 +289,7 @@ int room2(string uName) //breakroom w/ AI, Dave
   }
   cout<<endl;
   cout<<"...A prisoner? I'm a prisoner here?"<<endl;
+  cout<<"..and I'm going to die after this ship goes into a black hole"<<endl;
   cout<<"The AI is now silent. Panic sets in..."<<endl;
   cout<<"."<<endl;
   return aiStatus; 
@@ -334,7 +388,7 @@ bool archive(string uName, bool aIStat)
     cout<<"1. COMPUTER PASSWORDS - DO NOT DUPLICATE"<<endl;
     cout<<"2. WHAT TO DO IN CASE OF AI SHUTDOWN" <<endl;
     cout<<"You also remember the tape you picked up earlier..."<<endl; 
-    cout<<"3. please listen to this " +uName << endl;
+    cout<<"3. " + uName + ", please listen to this " << endl;
     cout<<" (Choose tape 1,2, or 3): ";
     cin >> tapeChoice;
     cout<<endl; 
@@ -387,7 +441,7 @@ bool archive(string uName, bool aIStat)
       cout<<"It means that the AI has completely screwed us, and you're on your own. I tried "<<endl;
       cout<<"all I could to stop the Warden, Dave, but it didn't work. The only thing I was able"<<endl;
       cout<<"to find was written on a scrap of paper in his desk, which said: "<<endl; 
-      cout<<"  th5b3st0fu5  "<<endl; 
+      cout<<"  th3b3st0fu5  "<<endl; 
       cout<<"all lower case, with numbers as vowels...."<<endl;
       cout<<"I hope it helps you with something. I couldn't figure out what it meant.--"<<endl; 
       cout<<endl; 
@@ -445,14 +499,19 @@ bool terminalroom(string uName, bool aIStat, bool visitedarchiveroom, bool previ
   {
     while(correctPassword == false) //if the player hasn't entered the correct password, they'll stay in this loop for multiple guesses 
     {
+      cout<<endl; 
       cout<<"The computer is locked. It prompts you for a password:"<<endl;
+      cout<<endl; 
       cout<<"(Type a password)  PASSWORD: ";
       cin>>password;
-
-      if(password == "th5b3st0fu5") //the correct password, obtained by listening to the tape in the archive room 
+      cout<<endl;
+      if(password == "th3b3st0fu5") //the correct password, obtained by listening to the tape in the archive room 
       {
         correctPassword = true; 
+        cout<<endl;
         cout<<"PASSWORD IS CORRECT"<<endl; 
+        cout<<"**ACCESS GRANTED**"<<endl; 
+        cout<<endl; 
         //end the loop here, move on to the rest of the game
       }
       else
@@ -460,10 +519,13 @@ bool terminalroom(string uName, bool aIStat, bool visitedarchiveroom, bool previ
         //Either the player hasn't been to the archive room and doesn't know the password, or they have visited and they forgot/didn't enter it in correctly 
         if(visitedarchiveroom == false) //if the player hasn't been to the archive room, then they don't know the password
         {
-          cout<<"...You realize guessing isn't going to work..."<<endl; 
-          cout<<"....Perhaps the archive room might have some secrets or something..."<<endl;
+          cout<<endl;
+          cout<<"**ACCESS DENIED**"<<endl;
+          cout<<endl;
+          cout<<"...Doesn't seem like guessing going to work..."<<endl; 
+          cout<<"...Where could I find a password?"<<endl;
           cout<<endl; 
-          cout<<"You decide to leave the terminal room to see what else you can find"<<endl; 
+          cout<<"You decide to leave the terminal room, perhaps this place has more secrets..."<<endl; 
           return false; //and the function will return false and end, so they can figure out the password when they come pack 
         }
         if(visitedarchiveroom == true) //because the player already went to the arhcive room, remind the player they found the password earlier 
@@ -504,10 +566,16 @@ int main()
 	int firstChoice = room1(playerName);
   bool completeRoom = false; 
   
-	if(firstChoice == 0)
+	if(firstChoice == 0) //first room 
 	{
 		errormessage();
 	}
+
+  int s = room1_5(playerName); //secondroom 
+  if(s == 0)
+  {
+    errormessage(); 
+  }
 
   int choice2 = room2(playerName);
   if(choice2 == 0) 
@@ -517,15 +585,16 @@ int main()
   else if(choice2 == 1) //neutral AI
   {
     pissedAI = false; 
-    cout<<"You've decided that's all you can gain out of this conversation..."<<endl; 
-    cout<<"But there's still more to be explored. You go outside of the breakroom."<<endl;
+    cout<<"You realize there has to be a way out of this..."<<endl; 
+    cout<<"Maybe exploring more of the ship will help you find a way out of here"<<endl;
     cout<<endl;
     cout<<endl;
   }
   else if(choice2 == 2)//hostile AI
   {
     pissedAI = true; //used for later to determine if you need to override the AI 
-    cout<<"Knowing that you've now upset the AI, you've decided to see where else you will go..."<<endl; 
+    cout<<"Knowing that you've now upset the AI, and that you're a prisoner, you panic and leave the room"<<endl; 
+    cout<<""<<endl;
     cout<<endl;
     cout<<endl;
   }
@@ -546,10 +615,8 @@ bool visitedArchive = false;
     if(hallwayChoice == 2)
     {
       //go to terminal room 
-      terminalRoom(playerName, pissedAI, visitedArchive, completeRoom);
-      //if you've already been to the archive room, then you have password for computer room
-      //if not, tell the player to go check the archive room and return 
-      cout<<"--insert code for computer room"<<endl;
+      //if the player has already been to the archive room, then this will let the player enter the password 
+      bothRoomsChecked = terminalroom(playerName, pissedAI, visitedArchive, completeRoom);
 
     }
     else if(hallwayChoice == 0) 
